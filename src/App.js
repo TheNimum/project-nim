@@ -1,25 +1,38 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Tasks from './components/Tasks';
 
-function App() {
+function App () {
+  const [task, setTasks] = useState([
+    {
+        id: 1,
+        text: 'doctors app',
+        day: 'jan 1th 2:30',
+        reminder: true,
+    },
+    {
+        id: 2,
+        text: 'School app',
+        day: 'jan 2th 4:30',
+        reminder: true,
+    },
+    {
+        id: 3,
+        text: 'Gym app',
+        day: 'jan 3th 1:30',
+        reminder: false,
+    }
+])
+const deleteTask = (id) => {
+  setTasks(task.filter((task) => task.id !== id))
+}
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Header />
+      <Tasks tasks={task} onDelete = {deleteTask}/>
     </div>
-  );
+  )
 }
 
 export default App;
