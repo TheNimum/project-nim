@@ -3,25 +3,26 @@ import './App.css';
 import Header from './components/Header';
 import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
+import LogginTask from './components/Login/LoginInput';
 
 function App () {
   const [tasks, setTasks] = useState([
     {
         id: 1,
         name: 'doctors app',
-        date: 'jan 1th 2:30',
+        age: 'jan 1th 2:30',
         reminder: true,
     },
     {
         id: 2,
         name: 'School app',
-        date: 'jan 2th 4:30',
+        age: 'jan 2th 4:30',
         reminder: true,
     },
     {
         id: 3,
         name: 'Gym app',
-        date: 'jan 3th 1:30',
+        age: 'jan 3th 1:30',
         reminder: false,
     }
 ])
@@ -41,7 +42,8 @@ const ToggleReminder = (id) => {
 }
   return (
     <div className='container'>
-     
+     <LogginTask /> 
+
       <Header onAdd = {() => setShowTask(!showTask)} 
         changeButton = {showTask}/>
 
@@ -50,7 +52,7 @@ const ToggleReminder = (id) => {
       {tasks.length > 0 ? (
       <Tasks tasks={tasks}
         onToggle ={ToggleReminder}
-       onDelete = {deleteTask} />) :( 'Task List is Empty'
+       onDelete = {deleteTask} />) :( 'List is Empty'
        )}
        
     </div>

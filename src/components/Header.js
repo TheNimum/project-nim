@@ -15,7 +15,7 @@ return(
 ) 
 } 
 Header.defaultProps = {
-    title: 'task tracker'
+    title: 'Puppy '
 }
 const headingSyle = {
     color: 'blue',
