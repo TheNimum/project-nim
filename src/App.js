@@ -5,6 +5,7 @@ import Tasks from './components/Tasks';
 import AddTask from './components/AddTask';
 import LogginTask from './components/Login/LoginInput';
 
+
 function App () {
   const [tasks, setTasks] = useState([
     {
@@ -26,6 +27,35 @@ function App () {
         reminder: false,
     }
 ])
+const [data , setData] = useState([
+  {
+    email: 'x@xx.com',
+    password: '123'
+  }
+])
+const [user, setUser] = useState({uName: '', pass:''})
+const [usrError, setError] = useState("")
+const login = (userinfo) => {
+  console.log(userinfo)
+  const database = data.find((e) => e.email === userinfo.email)
+  
+  if(userinfo.email === database.email && userinfo.password === database.password ){
+    console.log("success")
+    setUser({
+      uname:'',
+      pass:'',
+    })}
+
+
+}
+const logOut = () => {
+  setUser({
+    uName: "",
+    pass: ""
+  });
+}
+
+
 const [showTask, setShowTask] = useState(false)
 const addTask = (task)=> {
   const id = Math.floor(Math.random() * 10000) +1 
@@ -38,11 +68,15 @@ const deleteTask = (id) => {
 }
 const ToggleReminder = (id) => {
   setTasks(tasks.map((task)=> task.id === id 
-  ? {...task, reminder: !task.reminder}: task))
+  ? {...task, reminder: !task.reminder}: task)) 
 }
   return (
     <div className='container'>
-     <LogginTask /> 
+     {(user.uName !== "") ? (
+     ( <div className='welcome'>
+       <h2>welcome <span>{user.uName }</span></h2>
+       <button className='btn btn-block' onClick={logOut}>logout</button></div>)
+     ): <LogginTask login ={login} usrError={usrError}/>}
 
       <Header onAdd = {() => setShowTask(!showTask)} 
         changeButton = {showTask}/>
