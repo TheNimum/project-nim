@@ -1,5 +1,5 @@
 Main page is a login page at the moment.  
-<img width="611" alt="Screenshot 2022-05-17 at 07 58 53" src="https://user-images.githubusercontent.com/70508714/168739564-4bf91617-5101-466b-9baf-b6ec3ecf5176.png">
+<img width="572" alt="Screenshot 2022-05-17 at 08 20 54" src="https://user-images.githubusercontent.com/70508714/168742527-68735535-cb48-488e-8c2d-2f35336eb941.png">
 
 
 After login. 
